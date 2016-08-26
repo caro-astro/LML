@@ -31,5 +31,5 @@ WHERE
   and (p.type = 3 OR p.type = 6) and
   (p.flags & '4295229440') = 0 and
   p.mode = 1 and
-  p.modelMag_r < 22.6
+  p.modelMag_r < 22.5
   --- end of query
