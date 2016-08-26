@@ -25,7 +25,7 @@ SELECT
   p.type,
   (case when(p.flags & '16') = 0 then 1 else 0 end) as ISOLATED
 INTO mydb.SDSSimagingSample
-FROM PhotoTag p
+FROM PhotoTag p --- Cas Jobs says PhotoTag is not a valid object name!!!
 WHERE
   p.ra > 0.0 and p.ra < 10.0 and p.dec > -1 and p.dec < 1
   and (p.type = 3 OR p.type = 6) and
