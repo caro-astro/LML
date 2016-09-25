@@ -22,14 +22,11 @@ SELECT
   round(p.psfMagErr_r,3) as rpsfErr,
   round(p.psfMagErr_i,3) as ipsfErr,
   round(p.psfMagErr_z,3) as zpsfErr,
+  p.flags, 
+  p.mode,
   p.type,
   (case when(p.flags & '16') = 0 then 1 else 0 end) as ISOLATED
-INTO mydb.SDSSimagingSample
-FROM PhotoTag p
+INTO mydb.SDSSimagingSample3
+FROM dr7.PhotoTag p 
 WHERE
   p.ra > 0.0 and p.ra < 10.0 and p.dec > -1 and p.dec < 1
-  and (p.type = 3 OR p.type = 6) and
-  (p.flags & '4295229440') = 0 and
-  p.mode = 1 and
-  p.modelMag_r < 22.5
-  --- end of query
