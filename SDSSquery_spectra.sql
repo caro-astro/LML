@@ -16,6 +16,21 @@ INTO mydb.SDSSspecgalsDR8 FROM SpecObj S CROSS APPLY
   GalSpecLine GSL, GalSpecIndx GSX, GalSpecExtra GSE
 WHERE N.objID = G.objID
   AND GSI.specObjID = S.specObjID
+  AND GSI.specObjID = S.specObjID
+  AND GSX.specObjID = S.specObjID
+  AND GSE.specObjID = S.specObjID
+  AND (G.petroMag_r > 10 AND G.petroMag_r < 18)
+  AND (G.modelMag_u-G.modelMag_r) > 0
+  AND (G.modelMag_u-G.modelMag_r) < 6
+  AND (modelMag_u > 10 AND modelMag_u < 25)
+  AND (mdoelMag_g > 10 AND modelMag_g < 25)
+  AND (mdoelMag_r > 10 AND modelMag_r < 25)
+  AND (mdoelMag_i > 10 AND modelMag_i < 25)
+  AND (mdoelMag_z > 10 AND modelMag_z < 25)
+  AND S.rChi2 < 2
+  AND (S.zErr > AND S.zErr < 0.01)
+  AND S.z > 0.02
+  
   
 
 
