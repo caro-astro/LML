@@ -1,5 +1,5 @@
 SELECT
-  G.ra, G.dec, S.mjd, S.plate, S.fiberID
+  G.ra, G.dec, S.mjd, S.plate, S.fiberID,
   S.z, S.zErr, S.rChi2, S.velDisp, S.velDispErr,
   G.extinction_r, G.petroMag_r, G.psfMag_r, G.psfMagErr_r, 
   G.modelMag_u, modelMagErr_u, G.modelMag_g, modelMagErr_g,
@@ -23,12 +23,12 @@ WHERE N.objID = G.objID
   AND (G.modelMag_u-G.modelMag_r) > 0
   AND (G.modelMag_u-G.modelMag_r) < 6
   AND (modelMag_u > 10 AND modelMag_u < 25)
-  AND (mdoelMag_g > 10 AND modelMag_g < 25)
-  AND (mdoelMag_r > 10 AND modelMag_r < 25)
-  AND (mdoelMag_i > 10 AND modelMag_i < 25)
-  AND (mdoelMag_z > 10 AND modelMag_z < 25)
+  AND (modelMag_g > 10 AND modelMag_g < 25)
+  AND (modelMag_r > 10 AND modelMag_r < 25)
+  AND (modelMag_i > 10 AND modelMag_i < 25)
+  AND (modelMag_z > 10 AND modelMag_z < 25)
   AND S.rChi2 < 2
-  AND (S.zErr > AND S.zErr < 0.01)
+  AND (S.zErr > 0 AND S.zErr < 0.01)
   AND S.z > 0.02
   
   
